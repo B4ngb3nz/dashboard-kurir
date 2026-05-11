@@ -9,13 +9,25 @@ async function initBrowser() {
   if (browser) return;
 
   browser = await puppeteer.launch({
-    headless: false,
-    defaultViewport: null,
+    headless: true,
+    executablePath:
+      process.env.CHROME_BIN
+      || undefined,
+
     args: [
-      "--start-maximized",
+
       "--no-sandbox",
-      "--disable-setuid-sandbox"
+
+      "--disable-setuid-sandbox",
+
+      "--disable-dev-shm-usage",
+
+      "--disable-gpu",
+
+      "--single-process"
+
     ]
+
   });
 
   page = await browser.newPage();
