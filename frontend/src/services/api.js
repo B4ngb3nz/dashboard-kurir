@@ -1,7 +1,8 @@
 import axios from "axios";
 
-const API =
- "https://dashboard-api.onrender.com/api";
+const  API_URL =
+"https://dashboard-api.onrender.com/api/dashboard";
+
  // "http://localhost:3001/api/dashboard";
 
 export const getDashboard =
@@ -9,7 +10,7 @@ export const getDashboard =
 
     const res =
       await axios.get(
-        API,
+        API_URL,
         {
           params
         }
